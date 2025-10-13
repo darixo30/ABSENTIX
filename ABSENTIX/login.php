@@ -4,8 +4,145 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - ABSENTIX</title>
-    <link rel="stylesheet" href="login.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.login.css">
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Playwrite+US+Modern:wght@100..400&display=swap');
+
+body {
+    margin: 0;
+    font-family: "Playwrite US Modern", cursive; 
+    background: linear-gradient(to top, #1c1e26, #263248); 
+    background-image: url('https://i.pinimg.com/1200x/04/55/40/0455409798297344219f2332ece43b8d.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.navbar { 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    color: white;
+    backdrop-filter: blur(10px); /* Efecto blur */
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+}
+
+.search input {
+    padding: 5px 10px;
+    border-radius: 15px;
+    border: none;
+}
+
+/* --- Contenedor Principal (Aplica tanto a Login como a Registro) --- */
+.login-container, .container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.login-box, .signup-box { 
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px); /* Efecto Glassmorphism */
+    border-radius: 40px;
+    padding: 40px;
+    text-align: center;
+    width: 320px;
+    color: white;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+.login-box h2 {
+    color: #ffffffff; 
+    margin-bottom: 15px; 
+    font-size: 28px;
+}
+
+.logo-text {
+    /* Nueva fuente para el logo */
+    font-family: "Playwrite US Modern", cursive; 
+    color: #ffffffff; 
+    font-size: 40px;
+    margin-bottom: 5px;
+}
+
+.login-box input, .signup-box input {
+    width: calc(100% - 20px); 
+    padding: 10px;
+    margin: 10px 0;
+    border: none;
+    border-radius: 8px;
+    outline: none;
+}
+
+.input-group { 
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.95); 
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 0 10px;
+}
+
+.input-group i {
+    color: #9d5353; 
+    margin-right: 10px;
+}
+
+.input-group input {
+    flex-grow: 1;
+    border: none;
+    background: none; 
+    padding: 10px 0;
+    margin: 0;
+}
+
+/* --- Botones --- */
+.login-button, .signup-box button {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    background: #9d5353; 
+    color: white;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+    text-decoration: none; 
+    display: inline-block; 
+}
+
+.login-button:hover, .signup-box button:hover {
+    background: #9d5353;
+}
+
+/* Mensaje de Error */
+.error-message {
+    color: #ff6b6b; /* Un rojo suave para el error */
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+.login-box, .signup-box {
+
+    box-shadow: 
+     0 0 30px rgba(255, 255, 255, 1);
+
+}
+    </style>
 </head>
 <body>
     <div class="login-container">

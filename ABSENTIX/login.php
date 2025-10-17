@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login - ABSENTIX</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
     @import url('https://fonts.googleapis.com/css2?family=Alan+Sans:wght@300..900&family=Playwrite+US+Modern:wght@100..400&display=swap');
 
@@ -73,8 +74,6 @@ body {
 }
 
 .logo-text {
-    /* Nueva fuente para el logo */
-    font-family: "Playwrite US Modern", cursive; 
     color: #ffffffff; 
     font-size: 40px;
     margin-bottom: 5px;
@@ -92,7 +91,7 @@ body {
 .input-group { 
     display: flex;
     align-items: center;
-    background: rgba(255, 255, 255, 0.95); 
+    background: rgba(240, 225, 225, 0.66); 
     border-radius: 8px;
     margin-bottom: 15px;
     padding: 0 10px;
@@ -109,7 +108,15 @@ body {
     background: none; 
     padding: 10px 0;
     margin: 0;
+    /* CORRECCIÓN 1: Color de texto oscuro para que se vea */
+    color: #1c1e26; 
 }
+
+/* CORRECCIÓN 1 ADICIONAL: Color del placeholder */
+.input-group input::placeholder {
+    color: rgba(28, 30, 38, 0.7); 
+}
+
 
 /* --- Botones --- */
 .login-button, .signup-box button {
@@ -139,8 +146,34 @@ body {
 .login-box, .signup-box {
 
     box-shadow: 
-     0 0 30px rgba(255, 255, 255, 1);
+      0 0 30px rgba(255, 255, 255, 1);
 
+}
+.login-box a {
+    display: block; 
+    text-decoration: none;
+    margin-bottom: 15px; 
+}
+
+.login-button {
+    width: 100%;
+    padding: 12px 0; 
+    border: none;
+    background: #9d5353; 
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s; 
+    text-transform: uppercase;
+}
+
+
+.login-button:hover {
+    background: #7a4242; 
+    transform: scale(1.05); 
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
 }
     </style>
 </head>
@@ -162,7 +195,8 @@ body {
                 
                 <p id="errorMessage" class="error-message"></p>
                 
-                <button type="submit" class="login-button" a href="MENU.php">Entrar</button>
+                <button type="submit" class="login-button">Entrar</button>
+                
             </form>
             
             <div class="separator"></div>
@@ -171,10 +205,10 @@ body {
     
     <script>
         document.getElementById('loginForm').addEventListener('submit', function(event) {
-  
+ 
     event.preventDefault(); 
     
-
+    // Obtener los valores de los campos
     const usernameInput = document.getElementById('username').value;
     const passwordInput = document.getElementById('password').value;
     const errorMessage = document.getElementById('errorMessage');
@@ -188,14 +222,14 @@ body {
 
     // 4. Realizar la verificación
     if (usernameInput === correctUsername && passwordInput === correctPassword) {
-        // Credenciales correctas
-        // Redirige al menú principal (simulación)
+        // Credenciales correctas: Redirigir a la página principal
         window.location.href = "menu.php"; 
     } else {
-        // Credenciales incorrectas
+        // Credenciales incorrectas: Mostrar mensaje de error
         errorMessage.textContent = "Usuario o contraseña incorrectos. Intenta de nuevo.";
     }
 });
     </script>
 </body>
+
 </html>
